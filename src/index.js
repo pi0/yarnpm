@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const WIN32 = process.platform.indexOf("win32") !== -1;
-const _Exec = require('child_process').exec;
+const Spawn = require('child_process').spawn;
 const Path = require('path');
 const FS = require('fs');
 
@@ -9,6 +9,10 @@ const FS = require('fs');
 const _map = {
     'install': 'add',
 };
+
+const _need_tty = [
+    'publish',
+];
 
 // Extract Command Line Args
 const args = process.argv ? process.argv.splice(2) : [];
@@ -28,15 +32,9 @@ if (args[0] === 'yarnpm') {
 // Let's go
 var npm = useNPM();
 var command = npm ? 'npm' : 'yarn';
-Exec(command, npm ? args.map(npm2yarn) : args);
-
-// Spawn and redirect stdout/stderr
-function Exec(cmd, args) {
-    var p = _Exec(cmd + ' ' + args.join(' '));
-    p.stdout.pipe(process.stdout);
-    // Make output pretty, it is already formatted by child
-    p.stderr.pipe(process.stdout);
-}
+var _args = npm ? args.map(npm2yarn) : args;
+var detached = needsTTY(_args);
+Exec(command, _args, detached);
 
 // Check if we Should NPM instead of Yarn
 function useNPM() {
@@ -68,6 +66,25 @@ function npm2yarn(arg) {
     return arg;
 }
 
+// Spawn and redirect stdout/stderr
+function Exec(cmd, args, detached) {
+    Spawn(cmd + ' ' + args.join(' '), [], {
+        shell: true,
+        stdio: 'inherit',
+        detached: detached
+    });
+}
+
+// Check if command needs to run in detached mode and needs tty
+function needsTTY(arg) {
+    for (var cmd in _need_tty)
+        if (arg.indexOf(cmd) !== -1)
+            return true;
+    return false;
+}
+
+
+// DOC ME
 function installBin() {
     var src = Path.resolve(__filename);
     var dest_dir = WIN32 ? Path.dirname(process.env.ComSpec) : '/usr/local/bin';

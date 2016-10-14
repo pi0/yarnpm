@@ -1,6 +1,6 @@
 {
   "name": "yarnpm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yarn Wrapper for NPM!",
   "main": "src/index.js",
   "preferGlobal": true,
