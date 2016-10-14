@@ -9,7 +9,6 @@
     "install:global": "node ./src/index.js yarnpm install"
   },
   "bin": {
-    "npm": "./src/index.js",
     "yarnpm": "./src/index.js"
   },
   "repository": {
