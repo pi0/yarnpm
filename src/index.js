@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env/node
 
 const WIN32 = process.platform.indexOf("win32") !== -1;
 const Spawn = require('child_process').spawn;
