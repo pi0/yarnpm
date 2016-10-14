@@ -28,7 +28,7 @@ npm install --global yarnpm
 Install a syslink from `yarnpm` to `/usr/local/bin/npm` or `%WINDOWS%/system32/npm` :
 ```
 ### RUN ME AS ROOT/AMINISTRATOR ###
-yarnpm install yarnpm
+yarnpm yarnpm install
 ```
 
 
