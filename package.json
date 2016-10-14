@@ -1,0 +1,34 @@
+{
+  "name": "yarnpm",
+  "version": "0.0.1",
+  "description": "Yarn Wrapper for NPM!",
+  "main": "src/index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "install:npm": "npm install --global file:.",
+    "install:global": "node ./src/index.js yarnpm install"
+  },
+  "bin": {
+    "npm": "./src/index.js",
+    "yarnpm": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pi0/yarnpm.git"
+  },
+  "keywords": [
+    "yarn",
+    "npm",
+    "node",
+    "package",
+    "wrapper",
+    "script",
+    "global"
+  ],
+  "author": "Pooya Parsa",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/pi0/yarnpm/issues"
+  },
+  "homepage": "https://github.com/pi0/yarnpm#readme"
+}
