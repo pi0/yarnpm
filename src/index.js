@@ -56,9 +56,15 @@ function useNPM() {
 
 // Convert argument from NPM to Yarn
 function npm2yarn(arg) {
+
     // Check for arguments mapping
     if (_map[arg])
         return _map[arg];
+
+    // Filter out and don't pass --npm and --yarn options!
+    if (['--npm', '--yarn'].indexOf(arg) !== -1)
+        return '';
+
     return arg;
 }
 
