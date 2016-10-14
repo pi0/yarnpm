@@ -1,7 +1,9 @@
 # YarNPM
-Yarn Wrapper for `npm`, Use Yarn with `npm` Command Line!
+[YARN](https://github.com/yarnpkg/yarn)  Wrapper for `npm`, Use Yarn with `npm` Command Line!
 
-## What is [YARN](https://github.com/yarnpkg/yarn) ?
+[![NPM](https://nodei.co/npm/yarnpm.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/yarnpm/)
+
+## What is Yarn ?
 Yarn is a Fast, reliable, and secure dependency management that can be used as a replacement of NPM and other tools.
 
 ## So Why do i need this?
