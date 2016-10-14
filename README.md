@@ -1,5 +1,5 @@
 # YarNPM
-[YARN](https://github.com/yarnpkg/yarn)  Wrapper for `npm`, Use Yarn with `npm` Command Line!
+YarNPM is a [YARN](https://github.com/yarnpkg/yarn) wrapper which transforms `npm` commands to `yarn`, use `npm` as `yarn`!
 
 [![NPM](https://nodei.co/npm/yarnpm.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/yarnpm/)
 
