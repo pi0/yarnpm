@@ -21,14 +21,20 @@ wrapper binary which:
  
 ## Usage
 
-**Install global binary**   
+Install global binary:
 ```
 npm install --global yarnpm
 ```
+Install a syslink from `yarnpm` to `/usr/local/bin/npm` or `%WINDOWS%/system32/npm` :
+```
+### RUN ME AS ROOT/AMINISTRATOR ###
+yarnpm install yarnpm
+```
+
 
 **Check npm command in a NEW Terminal**
 ```
-$ yarnpm --help
+$ npm --help
 
   Usage: yarn install [flags]
 
@@ -39,11 +45,6 @@ $ yarnpm --help
 ```
 
 **Additional Steps if it does not works**   
-This will install a syslink from `yarnpm` to `/usr/local/bin/npm` or `%WINDOWS%/system32/npm` 
-```
-### RUN ME AS ROOT/AMINISTRATOR ###
-yarnpm install yarnpm
-```
 
 **Force Using NPM Or Yarn**     
 Use `--npm` or `--yarn` flag
@@ -52,5 +53,5 @@ Use `--npm` or `--yarn` flag
 
 ```
 npm run install:npm
-install:global
+npm run install:global
 ```
