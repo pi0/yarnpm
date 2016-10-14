@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const WIN32 = process.platform.indexOf("win32") !== -1;
 const Spawn = require('child_process').spawn;
 const Path = require('path');
@@ -66,7 +65,7 @@ function npm2yarn(arg) {
     return arg;
 }
 
-// Spawn and redirect stdout/stderr
+// Spawn and allocate TTY is detached==true
 function Exec(cmd, args, detached) {
     Spawn(cmd + ' ' + args.join(' '), [], {
         shell: true,
@@ -83,13 +82,18 @@ function needsTTY(arg) {
     return false;
 }
 
-
 // DOC ME
 function installBin() {
-    var src = Path.resolve(__filename);
-    var dest_dir = WIN32 ? Path.dirname(process.env.ComSpec) : '/usr/local/bin';
-    var dest = Path.resolve(dest_dir, 'npm');
-
-    console.log(src + ' -> ' + dest);
-    FS.symlinkSync(src, dest);
+	var dest = Path.resolve(Path.dirname(process.env.ComSpec),'npm');
+	if(WIN32) {
+		// On windows systems we need to make a .bat file
+		dest = dest + '.bat';
+		console.log('Writing to ' + dest);
+		FS.writeFileSync(dest, '@"'+process.argv[0]+'"' + ' "' +  process.argv[1] + '" %*');
+	} else {
+		// On Unix systems we can directly execute script
+		var src = process.argv[1];
+		console.log('Making syslink' + src + ' -> ' + dest);
+		FS.symlinkSync(src, dest);
+	}
 }
