@@ -1,6 +1,9 @@
 # YarNPM
 YarNPM is a [YARN](https://github.com/yarnpkg/yarn) wrapper which transforms `npm` commands to `yarn`, use `npm` as `yarn`!
 
+
+**WARNING: PLEASE DON'T USE THIS PACKAGE FOR NOW, IT MAY BREAK YOUR NPM, A BETTER INSTALLER APPROACH IS COMMING SOON :)**
+
 [![NPM](https://nodei.co/npm/yarnpm.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/yarnpm/)
 
 ## What is Yarn ?
